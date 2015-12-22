@@ -15,12 +15,25 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+             android:launchMode="singleTop" ><!-- 还有singleTask模式和singleInstance模式 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activity.AnotherActivity"
+            android:label="@string/title_activity_another" >
+        </activity>
+        <activity
+            android:name=".Activity.ActivityLifeCircle"
+            android:label="@string/title_activity_activity_life_circle" >
+        </activity>
+        <activity
+            android:name="com.androidstudy.Activity.SingleTopActivity"
+            android:label="@string/title_activity_single_top" >
         </activity>
     </application>
 
