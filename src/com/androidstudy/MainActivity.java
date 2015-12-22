@@ -10,7 +10,6 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		System.out.println("我居然就为了看看分之是怎么工作的写了这行代码，妈蛋");
 		setContentView(R.layout.activity_main);
 	}
 
