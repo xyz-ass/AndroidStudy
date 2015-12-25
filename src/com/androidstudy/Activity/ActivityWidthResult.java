@@ -7,34 +7,39 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.EditText;
 
 /**
  * @author Ynb007
- * 另一个被启动的activity
+ * 可以给上一个activity给返回值的activity
  */
-public class AnotherActivity extends Activity {
+public class ActivityWidthResult extends Activity {
 
+	private EditText et;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_another);
+		setContentView(R.layout.activity_width_result);
+		et = (EditText) findViewById(R.id.editText1);
 		
-		TextView tv = (TextView) findViewById(R.id.textview);
-		Intent i = getIntent();
-		Bundle bundle  = i.getExtras();
-		
-		//ActivityExtraUser user = (ActivityExtraUser) i.getSerializableExtra("user");
-		ActivityExtraUser user = i.getParcelableExtra("user");
-		String str = String.format("简单数据：%s\n Bundle数据：{data1:%s,data2:%s} \n自定义对象数据：%s", 
-				i.getStringExtra("keyTest"),bundle.getString("data1"),bundle.getInt("data2"),user.getId()+";"+user.getName());
-		tv.setText(str);
+		findViewById(R.id.returnButton).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Intent i = new Intent();
+				i.putExtra("data", et.getText().toString());
+				setResult(0, i);
+				finish();
+			}
+		});
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.another, menu);
+		getMenuInflater().inflate(R.menu.activity_width_result, menu);
 		return true;
 	}
 

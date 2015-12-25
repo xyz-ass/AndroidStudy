@@ -7,5 +7,10 @@
     <string name="title_activity_another">AnotherActivity</string>
     <string name="title_activity_activity_life_circle">ActivityLifeCircle</string>
     <string name="title_activity_single_top">SingleTopActivity</string>
+    <string name="title_activity_activity_width_result">ActivityWidthResult</string>
+    <string name="title_activity_activity_start_hidden">ActivityStartHidden</string>
+    <string name="title_activity_activity_start_by_web_uri">ActivityStartByWebUri</string>
+    <string name="title_activity_activity_study">ActivityStudyActivity</string>
+    <string name="title_activity_service_study">ServiceStudyActivity</string>
 
 </resources>

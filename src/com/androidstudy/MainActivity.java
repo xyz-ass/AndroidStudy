@@ -1,7 +1,5 @@
 package com.androidstudy;
 
-import com.androidstudy.Activity.ActivityLifeCircle;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,48 +11,48 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-	private TextView tv;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		tv = (TextView) findViewById(R.id.textView1);
-		tv.setText(String.format("TaskId:%d,\n Current Activity Id:%s",getTaskId(),toString()));
-		
-		findViewById(R.id.startAnotherActivity).setOnClickListener(new OnClickListener() {
+		findViewById(R.id.toActivityStudy).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				//启动另外一个activity
-				startActivity(new Intent(MainActivity.this,ActivityLifeCircle.class));
-				
-				//启动浏览器并打开指定网址
-				//startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.baidu.com")));
+				startActivity(new Intent(MainActivity.this,ActivityStudyActivity.class));
 			}
 		});
 		
-		//启动自身activity 可以尝试以Standard、singleTop、singleTask、singleInstance四种模式启动，默认是standard
-		findViewById(R.id.startStandardActivity).setOnClickListener(new OnClickListener() {
+		findViewById(R.id.toServiceStudy).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				startActivity(new Intent(MainActivity.this,MainActivity.class));
+				startActivity(new Intent(MainActivity.this,ServiceStudyActivity.class));
 			}
 		});
+		
 	}
 
+	
+	/**
+	 * 返回的activity的值将在这个方法中处理 
+	 **/
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(resultCode==0){
+			TextView tv = (TextView) findViewById(R.id.textViewResult);
+			tv.setText(data.getStringExtra("data"));
+		}
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;

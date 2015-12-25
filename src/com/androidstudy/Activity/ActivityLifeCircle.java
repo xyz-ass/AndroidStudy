@@ -1,16 +1,11 @@
 package com.androidstudy.Activity;
 
 import com.androidstudy.R;
-import com.androidstudy.R.id;
-import com.androidstudy.R.layout;
-import com.androidstudy.R.menu;
 
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.AttributeSet;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 /**

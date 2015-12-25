@@ -3,7 +3,7 @@ package com.androidstudy.Activity;
 import com.androidstudy.R;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,30 +11,24 @@ import android.widget.TextView;
 
 /**
  * @author Ynb007
- * 另一个被启动的activity
+ * 一个可以在web浏览器中使用myapp://etd. 链接打开的Activity
  */
-public class AnotherActivity extends Activity {
+public class ActivityStartByWebUri extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_another);
-		
-		TextView tv = (TextView) findViewById(R.id.textview);
-		Intent i = getIntent();
-		Bundle bundle  = i.getExtras();
-		
-		//ActivityExtraUser user = (ActivityExtraUser) i.getSerializableExtra("user");
-		ActivityExtraUser user = i.getParcelableExtra("user");
-		String str = String.format("简单数据：%s\n Bundle数据：{data1:%s,data2:%s} \n自定义对象数据：%s", 
-				i.getStringExtra("keyTest"),bundle.getString("data1"),bundle.getInt("data2"),user.getId()+";"+user.getName());
+		setContentView(R.layout.activity_start_by_web_uri);
+		Uri uri = getIntent().getData();
+		String str = String.format("接收到的URI是：%s", uri);
+		TextView tv = (TextView) findViewById(R.id.textView);
 		tv.setText(str);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.another, menu);
+		getMenuInflater().inflate(R.menu.activity_start_by_web_uri, menu);
 		return true;
 	}
 

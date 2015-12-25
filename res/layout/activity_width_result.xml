@@ -6,19 +6,27 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    tools:context="com.androidstudy.MainActivity" >
+    tools:context="com.androidstudy.Activity.ActivityWidthResult" 
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="输入一句话然后点击返回按钮" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
 
     <Button
-        android:id="@+id/toActivityStudy"
+        android:id="@+id/returnButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Activity基础知识" />
-    
-    <Button
-        android:id="@+id/toServiceStudy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Service基础知识" />
+        android:text="返回EditText的值" />
 
 </LinearLayout>

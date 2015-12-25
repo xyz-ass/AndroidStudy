@@ -6,12 +6,11 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.androidstudy.AnotherActivity" >
+    tools:context="com.androidstudy.Activity.ActivityStartHidden" >
 
     <TextView
-        android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="这是一个可以远程启动的Activity" />
 
 </RelativeLayout>
